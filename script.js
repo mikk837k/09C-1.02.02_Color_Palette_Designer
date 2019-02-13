@@ -16,6 +16,7 @@ function colorPicker(event) {
   console.log(rgbcolor);
 
   setBaseColor(hslcolor);
+  chooseHarmony(hslcolor);
 }
 
 function convertHEXtoRGB(hexcolor) {
@@ -85,20 +86,94 @@ function convertRGBtoHSL(rgbcolor) {
 }
 
 function setBaseColor(hslcolor) {
-  document.getElementById("0").style.backgroundColor = `hsl(${hslcolor.h},${
+  document.getElementById("zero").style.backgroundColor = `hsl(${hslcolor.h},${
+    hslcolor.s
+  }%,${hslcolor.l}%`;
+  document.getElementById("one").style.backgroundColor = `hsl(${hslcolor.h},${
+    hslcolor.s
+  }%,${hslcolor.l}%`;
+  document.getElementById("two").style.backgroundColor = `hsl(${hslcolor.h},${
+    hslcolor.s
+  }%,${hslcolor.l}%`;
+  document.getElementById("three").style.backgroundColor = `hsl(${hslcolor.h},${
+    hslcolor.s
+  }%,${hslcolor.l}%`;
+  document.getElementById("four").style.backgroundColor = `hsl(${hslcolor.h},${
     hslcolor.s
   }%,${hslcolor.l}%`;
 }
 
-function calculateColors(base) {}
+function chooseHarmony(hslcolor) {
+  document.querySelector("#analogous").addEventListener("click", () => {
+    analogous(hslcolor);
+  });
+  document.querySelector("#monochromatic").addEventListener("click", () => {
+    monochromatic(hslcolor);
+  });
+  document.querySelector("#triad").addEventListener("click", () => {
+    triad(hslcolor);
+  });
+}
 
-function analogous() {}
-// function monochromatic(){
-
+// function calculateColors(analogous) {
+//   document.querySelector("#1").style.backgroundColor = `hsl(${hslcolor.h},${
+//     hslcolor.s
+//   }%,${hslcolor.l}%`;
+//   document.querySelector("#2").style.backgroundColor = `hsl(${hslcolor.h},${
+//     hslcolor.s
+//   }%,${hslcolor.l}%`;
+//   document.querySelector("#3").style.backgroundColor = `hsl(${hslcolor.h},${
+//     hslcolor.s
+//   }%,${hslcolor.l}%`;
+//   document.querySelector("#4").style.backgroundColor = `hsl(${hslcolor.h},${
+//     hslcolor.s
+//   }%,${hslcolor.l}%`;
+//   document.querySelector("#5").style.backgroundColor = `hsl(${hslcolor.h},${
+//     hslcolor.s
+//   }%,${hslcolor.l}%`;
 // }
-// function triad(){
 
-// }
+function analogous(hslcolor) {
+  console.log("analogous kørt", hslcolor);
+
+  // console.log(hslcolor.h, hslcolor.h + 22.5);
+  document.querySelector("#one").style.backgroundColor = `hsl(${hslcolor.h +
+    22.5},${hslcolor.s}%,${hslcolor.l}%`;
+  document.querySelector("#two").style.backgroundColor = `hsl(${hslcolor.h +
+    -22.5},${hslcolor.s}%,${hslcolor.l}%`;
+  document.querySelector("#three").style.backgroundColor = `hsl(${hslcolor.h +
+    45},${hslcolor.s}%,${hslcolor.l}%`;
+  document.querySelector("#four").style.backgroundColor = `hsl(${hslcolor.h +
+    -45},${hslcolor.s}%,${hslcolor.l}%`;
+}
+function monochromatic(hslcolor) {
+  console.log("monochromatic kørt", hslcolor);
+  document.querySelector("#one").style.backgroundColor = `hsl(${hslcolor.h},${
+    hslcolor.s
+  }%,${hslcolor.l - 10}%`;
+  document.querySelector("#two").style.backgroundColor = `hsl(${hslcolor.h},${
+    hslcolor.s
+  }%,${hslcolor.l - 20}%`;
+  document.querySelector("#three").style.backgroundColor = `hsl(${hslcolor.h},${
+    hslcolor.s
+  }%,${hslcolor.l - 30}%`;
+  document.querySelector("#four").style.backgroundColor = `hsl(${hslcolor.h},${
+    hslcolor.s
+  }%,${hslcolor.l - 40}%`;
+}
+function triad(hslcolor) {
+  console.log("monochromatic kørt", hslcolor);
+  document.querySelector("#one").style.backgroundColor = `hsl(${hslcolor.h -
+    120},${hslcolor.s}%,${hslcolor.l}%`;
+  document.querySelector("#two").style.backgroundColor = `hsl(${hslcolor.h +
+    120},${hslcolor.s}%,${hslcolor.l}%`;
+  document.querySelector("#three").style.backgroundColor = `hsl(${hslcolor.h},${
+    hslcolor.s
+  }%,${hslcolor.l + 100}%`;
+  document.querySelector("#four").style.backgroundColor = `hsl(${hslcolor.h},${
+    hslcolor.s
+  }%,${hslcolor.l + 100}%`;
+}
 // function complementary(){
 
 // }
@@ -109,4 +184,4 @@ function analogous() {}
 
 // }
 
-function setColor(id, color) {}
+// function setColor(id, color) {}
