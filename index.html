@@ -8,9 +8,9 @@
     <title>09C-1.02.02_Color_Palette_Designer</title>
   </head>
   <body>
-    <label for="color-select">Choose a Harmony:</label>
-    <select id="color-select">
-      <option value="">--Change Color Harmony --</option>
+    <label for="harmony-select">Choose a Harmony:</label>
+    <select id="harmony-select">
+      <option value="">-- Change Color Harmony --</option>
       <option value="analogous">Analogous</option>
       <option value="monochromatic">Monochromatic</option>
       <option value="triad">Triad</option>
@@ -18,7 +18,7 @@
       <option value="compound">Compound</option>
       <option value="shades">Shades</option>
     </select>
-    <input type="color" value="#ff0000" />
+    <input id="colorwheel" type="color" value="#ff0000" />
     <div class="colorwrapper">
       <div id="3" class="colorBox"></div>
       <div id="1" class="colorBox"></div>
@@ -26,5 +26,6 @@
       <div id="2" class="colorBox"></div>
       <div id="4" class="colorBox"></div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
