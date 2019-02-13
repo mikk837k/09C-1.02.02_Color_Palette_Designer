@@ -113,26 +113,16 @@ function chooseHarmony(hslcolor) {
   document.querySelector("#triad").addEventListener("click", () => {
     triad(hslcolor);
   });
+  document.querySelector("#complementary").addEventListener("click", () => {
+    complementary(hslcolor);
+  });
+  document.querySelector("#compound").addEventListener("click", () => {
+    compound(hslcolor);
+  });
+  document.querySelector("#shades").addEventListener("click", () => {
+    shades(hslcolor);
+  });
 }
-
-// function calculateColors(analogous) {
-//   document.querySelector("#1").style.backgroundColor = `hsl(${hslcolor.h},${
-//     hslcolor.s
-//   }%,${hslcolor.l}%`;
-//   document.querySelector("#2").style.backgroundColor = `hsl(${hslcolor.h},${
-//     hslcolor.s
-//   }%,${hslcolor.l}%`;
-//   document.querySelector("#3").style.backgroundColor = `hsl(${hslcolor.h},${
-//     hslcolor.s
-//   }%,${hslcolor.l}%`;
-//   document.querySelector("#4").style.backgroundColor = `hsl(${hslcolor.h},${
-//     hslcolor.s
-//   }%,${hslcolor.l}%`;
-//   document.querySelector("#5").style.backgroundColor = `hsl(${hslcolor.h},${
-//     hslcolor.s
-//   }%,${hslcolor.l}%`;
-// }
-
 function analogous(hslcolor) {
   console.log("analogous kørt", hslcolor);
 
@@ -174,14 +164,80 @@ function triad(hslcolor) {
     hslcolor.s
   }%,${hslcolor.l + 100}%`;
 }
-// function complementary(){
+function complementary(hslcolor) {
+  document.querySelector("#one").style.backgroundColor = `hsl(${hslcolor.h -
+    180},${hslcolor.s}%,${hslcolor.l}%`;
+  document.querySelector("#two").style.backgroundColor = `hsl(${hslcolor.h},${
+    hslcolor.s
+  }%,${hslcolor.l + 100}%`;
+  document.querySelector("#three").style.backgroundColor = `hsl(${hslcolor.h},${
+    hslcolor.s
+  }%,${hslcolor.l + 100}%`;
+  document.querySelector("#four").style.backgroundColor = `hsl(${hslcolor.h},${
+    hslcolor.s
+  }%,${hslcolor.l + 100}%`;
+}
+function compound(hslcolor) {
+  document.querySelector("#one").style.backgroundColor = `hsl(${hslcolor.h +
+    22.5},${hslcolor.s}%,${hslcolor.l}%`;
+  document.querySelector("#two").style.backgroundColor = `hsl(${hslcolor.h -
+    180},${hslcolor.s}%,${hslcolor.l}%`;
+  document.querySelector("#three").style.backgroundColor = `hsl(${hslcolor.h -
+    45},${hslcolor.s}%,${hslcolor.l}%`;
+  document.querySelector("#four").style.backgroundColor = `hsl(${hslcolor.h -
+    180},${hslcolor.s}%,${hslcolor.l}%`;
+}
+function shades(hslcolor) {
+  document.querySelector("#one").style.backgroundColor = `hsl(${
+    hslcolor.h
+  },${hslcolor.s - 30}%,${hslcolor.l}%`;
+  document.querySelector("#two").style.backgroundColor = `hsl(${
+    hslcolor.h
+  },${hslcolor.s - 20}%,${hslcolor.l}%`;
+  document.querySelector("#three").style.backgroundColor = `hsl(${
+    hslcolor.h
+  },${hslcolor.s - 40}%,${hslcolor.l}%`;
+  document.querySelector("#four").style.backgroundColor = `hsl(${
+    hslcolor.h
+  },${hslcolor.s - 60}%,${hslcolor.l}%`;
+}
 
+// function getRgbCode() {
+//   console.log("getRgbCodes");
+//   let box_zero = document.querySelector("#zero").style.backgroundColor;
+//   let box_one = document.querySelector("#one").style.backgroundColor;
+//   let box_two = document.querySelector("#two").style.backgroundColor;
+//   let box_three = document.querySelector("#three").style.backgroundColor;
+//   let box_four = document.querySelector("#four").style.backgroundColor;
+
+//   let slice_box_zero = box_zero.slice(4, -1);
+//   let slice_box_one = box_one.slice(4, -1);
+//   let slice_box_two = box_two.slice(4, -1);
+//   let slice_box_three = box_three.slice(4, -1);
+//   let slice_box_four = box_four.slice(4, -1);
+
+//   let split_box_zero = slice_box_zero.split(", ");
+//   let split_box_one = slice_box_one.split(", ");
+//   let split_box_two = slice_box_two.split(", ");
+//   let split_box_three = slice_box_three.split(", ");
+//   let split_box_four = slice_box_four.split(", ");
+
+//   convertRGBtoHEX(
+//     split_box_zero,
+//     split_box_one,
+//     split_box_two,
+//     split_box_three,
+//     split_box_four
+//   );
 // }
-// function compound(){
 
+// function convertRGBtoHEX() {
+//   console.log(
+//     "er kørt convertRGBtoHEX",
+//     split_box_zero,
+//     split_box_one,
+//     split_box_two,
+//     split_box_three,
+//     split_box_four
+//   );
 // }
-// function shades(){
-
-// }
-
-// function setColor(id, color) {}
