@@ -1,12 +1,22 @@
+body {
+  background-color: rgb(26, 26, 26);
+}
+
+label {
+  color: white;
+}
+
 .colorwrapper {
   margin-top: 20px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .colorBox {
-  width: 300px;
-  height: 300px;
-  border: 2px solid black;
+  width: 250px;
+  height: 250px;
+  /* border: 2px solid black; */
 }
 
 .harmony-select {

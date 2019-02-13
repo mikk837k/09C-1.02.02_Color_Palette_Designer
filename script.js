@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-  console.log("init");
+  // console.log("init");
   document
     .querySelector("#colorwheel")
     .addEventListener("input", colorPicker, false);
 }
 function colorPicker(event) {
-  console.log("colorPicker");
+  // console.log("colorPicker");
   const hexcolor = event.target.value;
   const rgbcolor = convertHEXtoRGB(hexcolor);
   const hslcolor = convertRGBtoHSL(rgbcolor);
@@ -20,7 +20,7 @@ function colorPicker(event) {
 }
 
 function convertHEXtoRGB(hexcolor) {
-  console.log("convertHEXtoHSL");
+  // console.log("convertHEXtoHSL");
   const hexString = hexcolor.substring(1, 7);
   const string1 = hexString.slice(0, 2);
   const string2 = hexString.slice(2, 4);
@@ -36,7 +36,7 @@ function convertHEXtoRGB(hexcolor) {
 }
 
 function convertRGBtoHSL(rgbcolor) {
-  console.log("convertRGBtoHSL");
+  // console.log("convertRGBtoHSL");
 
   let r = rgbcolor.red;
   let g = rgbcolor.green;
@@ -124,7 +124,7 @@ function chooseHarmony(hslcolor) {
   });
 }
 function analogous(hslcolor) {
-  console.log("analogous kørt", hslcolor);
+  // console.log("analogous kørt", hslcolor);
 
   // console.log(hslcolor.h, hslcolor.h + 22.5);
   document.querySelector("#one").style.backgroundColor = `hsl(${hslcolor.h +
@@ -137,7 +137,7 @@ function analogous(hslcolor) {
     -45},${hslcolor.s}%,${hslcolor.l}%`;
 }
 function monochromatic(hslcolor) {
-  console.log("monochromatic kørt", hslcolor);
+  // console.log("monochromatic kørt", hslcolor);
   document.querySelector("#one").style.backgroundColor = `hsl(${hslcolor.h},${
     hslcolor.s
   }%,${hslcolor.l - 10}%`;
@@ -152,30 +152,30 @@ function monochromatic(hslcolor) {
   }%,${hslcolor.l - 40}%`;
 }
 function triad(hslcolor) {
-  console.log("monochromatic kørt", hslcolor);
+  // console.log("monochromatic kørt", hslcolor);
   document.querySelector("#one").style.backgroundColor = `hsl(${hslcolor.h -
     120},${hslcolor.s}%,${hslcolor.l}%`;
   document.querySelector("#two").style.backgroundColor = `hsl(${hslcolor.h +
     120},${hslcolor.s}%,${hslcolor.l}%`;
-  document.querySelector("#three").style.backgroundColor = `hsl(${hslcolor.h},${
+  document.querySelector("#three").style.backgroundColor = `hsla(${
+    hslcolor.h
+  },${hslcolor.s}%,${hslcolor.l}%, 0`;
+  document.querySelector("#four").style.backgroundColor = `hsla(${hslcolor.h},${
     hslcolor.s
-  }%,${hslcolor.l + 100}%`;
-  document.querySelector("#four").style.backgroundColor = `hsl(${hslcolor.h},${
-    hslcolor.s
-  }%,${hslcolor.l + 100}%`;
+  }%,${hslcolor.l}%, 0`;
 }
 function complementary(hslcolor) {
   document.querySelector("#one").style.backgroundColor = `hsl(${hslcolor.h -
     180},${hslcolor.s}%,${hslcolor.l}%`;
-  document.querySelector("#two").style.backgroundColor = `hsl(${hslcolor.h},${
+  document.querySelector("#two").style.backgroundColor = `hsla(${hslcolor.h},${
     hslcolor.s
-  }%,${hslcolor.l + 100}%`;
-  document.querySelector("#three").style.backgroundColor = `hsl(${hslcolor.h},${
+  }%,${hslcolor.l}%, 0`;
+  document.querySelector("#three").style.backgroundColor = `hsla(${
+    hslcolor.h
+  },${hslcolor.s}%,${hslcolor.l}%, 0`;
+  document.querySelector("#four").style.backgroundColor = `hsla(${hslcolor.h},${
     hslcolor.s
-  }%,${hslcolor.l + 100}%`;
-  document.querySelector("#four").style.backgroundColor = `hsl(${hslcolor.h},${
-    hslcolor.s
-  }%,${hslcolor.l + 100}%`;
+  }%,${hslcolor.l}%, 0`;
 }
 function compound(hslcolor) {
   document.querySelector("#one").style.backgroundColor = `hsl(${hslcolor.h +
@@ -201,6 +201,20 @@ function shades(hslcolor) {
     hslcolor.h
   },${hslcolor.s - 60}%,${hslcolor.l}%`;
 }
+
+// TODO: få fat i rgb kode og konverter til hex. Indsæt hex kode under farver.
+
+// function getRGBcode(e) {
+//   let colorBoxArray = [];
+
+//   rgbString.forEach(e => {
+//     document.querySelector(".colorBox").style.backgroundColor;
+//   });
+
+//   let slicedRgbString = rgbString.slice(4, -1);
+
+//   console.log(slicedRgbString);
+// }
 
 // function getRgbCode() {
 //   console.log("getRgbCodes");
