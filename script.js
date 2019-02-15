@@ -124,9 +124,6 @@ function chooseHarmony(hslcolor) {
   });
 }
 function analogous(hslcolor) {
-  // console.log("analogous kørt", hslcolor);
-
-  // console.log(hslcolor.h, hslcolor.h + 22.5);
   document.querySelector("#one").style.backgroundColor = `hsl(${hslcolor.h +
     22.5},${hslcolor.s}%,${hslcolor.l}%`;
   document.querySelector("#two").style.backgroundColor = `hsl(${hslcolor.h +
@@ -135,9 +132,9 @@ function analogous(hslcolor) {
     45},${hslcolor.s}%,${hslcolor.l}%`;
   document.querySelector("#four").style.backgroundColor = `hsl(${hslcolor.h +
     -45},${hslcolor.s}%,${hslcolor.l}%`;
+  getRGBcode();
 }
 function monochromatic(hslcolor) {
-  // console.log("monochromatic kørt", hslcolor);
   document.querySelector("#one").style.backgroundColor = `hsl(${hslcolor.h},${
     hslcolor.s
   }%,${hslcolor.l - 10}%`;
@@ -150,6 +147,7 @@ function monochromatic(hslcolor) {
   document.querySelector("#four").style.backgroundColor = `hsl(${hslcolor.h},${
     hslcolor.s
   }%,${hslcolor.l - 40}%`;
+  getRGBcode();
 }
 function triad(hslcolor) {
   // console.log("monochromatic kørt", hslcolor);
@@ -163,6 +161,7 @@ function triad(hslcolor) {
   document.querySelector("#four").style.backgroundColor = `hsla(${hslcolor.h},${
     hslcolor.s
   }%,${hslcolor.l}%, 0`;
+  getRGBcode();
 }
 function complementary(hslcolor) {
   document.querySelector("#one").style.backgroundColor = `hsl(${hslcolor.h -
@@ -176,6 +175,7 @@ function complementary(hslcolor) {
   document.querySelector("#four").style.backgroundColor = `hsla(${hslcolor.h},${
     hslcolor.s
   }%,${hslcolor.l}%, 0`;
+  getRGBcode();
 }
 function compound(hslcolor) {
   document.querySelector("#one").style.backgroundColor = `hsl(${hslcolor.h +
@@ -186,6 +186,7 @@ function compound(hslcolor) {
     45},${hslcolor.s}%,${hslcolor.l}%`;
   document.querySelector("#four").style.backgroundColor = `hsl(${hslcolor.h -
     180},${hslcolor.s}%,${hslcolor.l}%`;
+  getRGBcode();
 }
 function shades(hslcolor) {
   document.querySelector("#one").style.backgroundColor = `hsl(${
@@ -200,58 +201,52 @@ function shades(hslcolor) {
   document.querySelector("#four").style.backgroundColor = `hsl(${
     hslcolor.h
   },${hslcolor.s - 60}%,${hslcolor.l}%`;
+  getRGBcode();
 }
 
 // TODO: få fat i rgb kode og konverter til hex. Indsæt hex kode under farver.
 
-// function getRGBcode(e) {
-//   let colorBoxArray = [];
+function getRGBcode() {
+  console.log("getRGBcode");
+  let colorBoxArray = ["#zero", "#one", "#two", "#three", "#four"];
 
-//   rgbString.forEach(e => {
-//     document.querySelector(".colorBox").style.backgroundColor;
-//   });
+  let childArray = [".zero", ".one", ".two", ".three", ".four"];
 
-//   let slicedRgbString = rgbString.slice(4, -1);
+  for (counter = 0; counter < 5; counter++) {
+    let rgbcode = document.querySelector(colorBoxArray[counter]).style
+      .backgroundColor;
 
-//   console.log(slicedRgbString);
-// }
+    const hexcode = manipulateRGBCode(rgbcode);
 
-// function getRgbCode() {
-//   console.log("getRgbCodes");
-//   let box_zero = document.querySelector("#zero").style.backgroundColor;
-//   let box_one = document.querySelector("#one").style.backgroundColor;
-//   let box_two = document.querySelector("#two").style.backgroundColor;
-//   let box_three = document.querySelector("#three").style.backgroundColor;
-//   let box_four = document.querySelector("#four").style.backgroundColor;
+    let h = hexcode.hexString1;
+    let e = hexcode.hexString2;
+    let x = hexcode.hexString3;
 
-//   let slice_box_zero = box_zero.slice(4, -1);
-//   let slice_box_one = box_one.slice(4, -1);
-//   let slice_box_two = box_two.slice(4, -1);
-//   let slice_box_three = box_three.slice(4, -1);
-//   let slice_box_four = box_four.slice(4, -1);
+    let hexStringNumb = "#" + h + e + x;
 
-//   let split_box_zero = slice_box_zero.split(", ");
-//   let split_box_one = slice_box_one.split(", ");
-//   let split_box_two = slice_box_two.split(", ");
-//   let split_box_three = slice_box_three.split(", ");
-//   let split_box_four = slice_box_four.split(", ");
+    document.querySelector(childArray[counter]).textContent = hexStringNumb;
+  }
+}
 
-//   convertRGBtoHEX(
-//     split_box_zero,
-//     split_box_one,
-//     split_box_two,
-//     split_box_three,
-//     split_box_four
-//   );
-// }
+function manipulateRGBCode(rgbcode) {
+  console.log("manipulateRGBCode");
+  // const slicedRGBCodeArray = [];
 
-// function convertRGBtoHEX() {
-//   console.log(
-//     "er kørt convertRGBtoHEX",
-//     split_box_zero,
-//     split_box_one,
-//     split_box_two,
-//     split_box_three,
-//     split_box_four
-//   );
-// }
+  let slicedRGBCode = rgbcode.slice(4, -1);
+
+  let splitRGBCode = slicedRGBCode.split(", ");
+
+  const rgbNumb1 = parseInt(splitRGBCode[0]);
+  const rgbNumb2 = parseInt(splitRGBCode[1]);
+  const rgbNumb3 = parseInt(splitRGBCode[2]);
+
+  const hexString1 = rgbNumb1.toString(16);
+  const hexString2 = rgbNumb2.toString(16);
+  const hexString3 = rgbNumb3.toString(16);
+
+  console.log(hexString1);
+  console.log(hexString2);
+  console.log(hexString3);
+
+  return { hexString1, hexString2, hexString3 };
+}

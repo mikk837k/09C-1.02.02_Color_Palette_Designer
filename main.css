@@ -8,13 +8,21 @@ label {
 
 .colorwrapper {
   margin-top: 20px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
+  display: grid;
+  grid-template-rows: 300px 300px;
 }
 .colorBox {
   width: 250px;
   height: 250px;
-  /* border: 2px solid black; */
+  align-self: center;
+}
+
+.hexcode {
+  grid-row: 2;
+  width: 250px;
+  height: 250px;
+  align-self: start;
+  text-align: center;
+  color: white;
 }
